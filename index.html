@@ -8,7 +8,13 @@
       name="description"
       content="Discover inspiring, motivational, and thought-provoking random quotes with our free web app. Get a daily dose of wisdom from famous authors, leaders, and thinkers—refresh for a new quote anytime!" />
     <meta name="author" content="Mohamed Tamer" />
-
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap"
+      rel="stylesheet" />
+    <!-- CSS -->
     <style>
       *,
       *::after,
@@ -37,9 +43,7 @@
         font-size: clamp(1rem, 7vw + 1rem, 2rem);
         line-height: 1.6;
 
-        display: gird;
         text-align: center;
-        place-content: center;
 
         padding-inline: clamp(1rem, 4vw + 1rem, 10em);
         padding-block: 1.25rem;
@@ -50,11 +54,14 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
+      body > * {
+        margin-block: 20px;
+      }
       h1 {
-        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-family: Impact, "Poetsen One", sans-serif;
+        letter-spacing: 3px;
         font-size: clamp(1.8rem, 7vw + 1rem, 5rem);
         font-weight: bold;
-        white-space: nowrap;
         text-shadow: 4px 3px 0px #7a7a7a;
       }
       button {
@@ -83,18 +90,14 @@
         opacity: 0;
         translate: 0 20px;
         transition: opacity 0.4s ease-out, translate 0.4s ease-out;
-      }
-      @media screen and (width < 62rem) {
-        body {
-          display: block;
-        }
-        body > * {
-          margin-block: 20px;
-        }
+        max-width: 65ch;
+        margin-inline: auto;
       }
     </style>
+    <!-- JavaScript -->
     <script src="./main.js" defer></script>
   </head>
+
   <body>
     <h1>Quote of the Day</h1>
     <p>Press the Button Below to Receive a Random Quote!</p>
