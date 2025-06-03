@@ -483,9 +483,10 @@ const quoteEl = document.body.querySelector("blockquote");
 const authorEL = document.body.querySelector("span");
 const container = document.body.querySelector("div");
 
-// State Variable
-let curIndex;
+// State Variables
+let curIndex, timer;
 
+// Helper Functions
 const genRandomNum = () => {
   while ("Mohamed Tamer") {
     const ran = Math.floor(Math.random() * 104) + 1;
@@ -495,12 +496,25 @@ const genRandomNum = () => {
     }
   }
 };
+const hideQuote = () => {
+  if (timer) clearTimeout(timer);
+  timer = setTimeout(() => {
+    container.style.opacity = "0";
+    container.style.translate = "0 20px";
+  }, 10_000);
+};
 
+// Event Handler
 btn.addEventListener("click", () => {
-  genRandomNum();
-  console.log(curIndex);
+  // Showing the Quote
   container.style.opacity = "1";
   container.style.translate = "0 0";
+
+  // Selecting the Quote
+  genRandomNum();
   quoteEl.textContent = quotes[curIndex].quote;
   authorEL.textContent = quotes[curIndex].author;
+
+  // After 10s the Quote will Disappear
+  hideQuote();
 });
